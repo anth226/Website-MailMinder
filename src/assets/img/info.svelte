@@ -1,0 +1,18 @@
+<script>
+	/* PROPS */
+	let clazz;
+	export { clazz as class };
+</script>
+
+<svg
+	class={clazz}
+	width="16"
+	height="16"
+	viewBox="0 0 16 16"
+	fill="none"
+	xmlns="http://www.w3.org/2000/svg"
+>
+	<circle cx="8" cy="8" r="7.5" stroke="currentColor" />
+	<rect x="7" y="7.11108" width="2" height="6" rx="1" fill="currentColor" />
+	<circle cx="8" cy="5" r="1" fill="currentColor" />
+</svg>

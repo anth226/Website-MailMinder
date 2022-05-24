@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: website-mailminder-kit
+    env: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: build

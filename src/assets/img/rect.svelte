@@ -1,0 +1,12 @@
+<script>
+	/* PROPS */
+	let clazz;
+	export { clazz as class };
+</script>
+
+<svg class={clazz} width="8" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"
+	><path
+		d="M7 7.214L1.777 3.11a1 1 0 00-1.618.787v8.204a1 1 0 001.618.787l5.221-4.103a1 1 0 000-1.572z"
+		fill="#D1D1D1"
+	/></svg
+>

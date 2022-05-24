@@ -1,0 +1,16 @@
+{
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"$lib": ["src/lib"],
+			"$lib/*": ["src/lib/*"],
+			"@constants/*": ["src/constants/*"],
+			"@stores/*": ["src/stores/*"],
+			"@components/*": ["src/components/*"],
+			"@utils/*": ["src/utils/*"],
+			"@assets/*": ["src/assets/*"]
+		},
+		"types": ["vite/client"]
+	},
+	"include": ["src/**/*.js", "src/**/*.svelte"]
+}

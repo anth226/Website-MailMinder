@@ -1,0 +1,34 @@
+<script>
+	/* PROPS */
+	let clazz;
+	export { clazz as class };
+</script>
+
+<svg class={clazz} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 41"
+	><g id="Layer_2" data-name="Layer 2"
+		><g id="Layer_1-2" data-name="Layer 1"
+			><rect
+				x="9"
+				y="1"
+				width="46"
+				height="32"
+				rx="5"
+				fill="#fff"
+				stroke="#e7e7e7"
+				stroke-width="2"
+			/><rect
+				x="1"
+				y="8"
+				width="46"
+				height="32"
+				rx="5"
+				fill="#fff"
+				stroke="#e7e7e7"
+				stroke-width="2"
+			/><path
+				d="M8.62,18.51V29.39a1.15,1.15,0,1,0,2.3,0V21.3L22.45,32.93a1.12,1.12,0,0,0,.86.4,1.09,1.09,0,0,0,.87-.4L35.7,21.29v8.09a1.15,1.15,0,1,0,2.3,0V18.5a1.17,1.17,0,0,0-1.15-1.17,1.15,1.15,0,0,0-.87.41L23.31,30.55,10.66,17.77v0a1.15,1.15,0,0,0-2,.76Z"
+				fill="#e7e7e7"
+			/></g
+		></g
+	></svg
+>
