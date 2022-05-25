@@ -65,8 +65,8 @@
 			title: $event.title,
 			repeat: $event?.repeat || 'year',
 			common: false,
-			uuid: $user.id ?? undefined,
-			email: $user.email || email
+			uuid: $user?.id ?? undefined,
+			email: $user?.email || email
 		};
 		// If authenticated user, set UUID and email
 
@@ -113,7 +113,7 @@
 							...loopData,
 							...$event,
 							date: loopData.date,
-							email: $user.email
+							email: $user?.email || email
 						});
 
 						if (index === reminderSchedule.length - 1) {
