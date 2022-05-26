@@ -84,6 +84,7 @@
 				<ArrowLeft class="w-3 h-3" />
 			</button>
 			<div
+				style="padding-left:1.5px"
 				class=" border-b-2 border-[#d1d1d1] text-4xl  leading-none flex items-center justify-center text-center mx-0.75 w-[112px]"
 			>
 				<!-- <label class="text-[#a8a8a8]" for="Year">20</label> -->
