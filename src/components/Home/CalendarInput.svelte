@@ -86,8 +86,12 @@
 			<div
 				class=" border-b-2 border-[#d1d1d1] text-4xl  leading-none flex items-center justify-center text-center mx-0.75 w-[112px]"
 			>
-				<label class="text-[#a8a8a8]" for="Year">20</label>
-
+				<!-- <label class="text-[#a8a8a8]" for="Year">20</label> -->
+				<input
+					id="custom"
+					class="w-[44px]"
+					value={20}
+					disabled/>
 				<!-- svelte-ignore a11y-positive-tabindex -->
 				<input
 					class="w-[44px]"
@@ -236,3 +240,9 @@
 		<span class="text-[#a8a8a8] text-lg mt-2.5 mx-auto">{ddd ? ddd : ''}</span>
 	</div>
 </div>
+
+<style>
+	#custom{
+		background-color: transparent !important;
+	}
+</style>
