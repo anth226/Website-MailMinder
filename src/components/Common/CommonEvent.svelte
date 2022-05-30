@@ -7,7 +7,7 @@
 
 	/* STORES */
 
-	import { commonEvents, insertEvent, deleteEvent, insertReminder } from '@stores/eventsStore';
+	import { events, insertEvent, deleteEvent, insertReminder, commonEvents} from '@stores/eventsStore';
 
 	import { user, notification } from '@stores/sessionStore';
 
@@ -28,13 +28,17 @@
 			email: $user.email
 		};
 
-		$commonEvents = [...$commonEvents, data];
+		$events = [...$events, data];
 
-		const index = $commonEvents.length - 1;
+		const index = $events.length - 1;
 
 		const result = await insertEvent(data);
 
-		$commonEvents.splice(index, 1, result);
+		$events.splice(index, 1, result);
+
+		$commonEvents = $events.filter((event) => {
+				return event.common;
+			}); 
 
 		if (result && !result.error) {
 			let reminderData = { uuid: $user.id };
@@ -62,7 +66,7 @@
 		} else {
 			notification.set(`${result.error[0].param}: ${result.error[0].msg}`);
 
-			$commonEvents.pop();
+			$events.pop();
 		}
 	};
 
@@ -71,17 +75,19 @@
 
 		const eventId =
 			eventToDelete.id ??
-			$commonEvents.find((commonEvent) => {
+			$events.find((commonEvent) => {
 				return commonEvent.title == event.title && commonEvent.date == event.date;
 			}).id;
 
-		const index = $commonEvents.findIndex((commonEvent) => {
+		const index = $events.findIndex((commonEvent) => {
 			return commonEvent.title == event.title && commonEvent.date == event.date;
 		});
 
-		$commonEvents = $commonEvents.filter((eventIteration) => {
+		$events = $events.filter((eventIteration) => {
 			return eventIteration.id !== eventId;
 		});
+
+	
 
 		//console.log('eventToDelete', eventToDelete);
 
@@ -91,16 +97,22 @@
 
 		if (!result.error) {
 			//console.log('EVENT DELETED', eventToDelete);
+
+			$commonEvents = $events.filter((event) => {
+				return event.common;
+			}); 
+
 			return result;
 		} else {
+
 			//console.log('EVENT NOT DELETED', eventToDelete);
 
-			const oldCommonEvents = $commonEvents.length ? [...$commonEvents] : [];
+			const oldevents = $events.length ? [...$events] : [];
 
-			oldCommonEvents.splice(index, 0, eventToDelete);
+			oldevents.splice(index, 0, eventToDelete);
 
-			$commonEvents = oldCommonEvents;
-
+			$events = oldevents;
+			
 			return false;
 		}
 	};

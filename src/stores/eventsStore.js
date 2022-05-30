@@ -55,9 +55,11 @@ export const fetchEvents = async () => {
 
 			const rawResponse = await response.json();
 
-			const fetchedEvents = rawResponse.filter((normalEvent) => {
-				return !normalEvent.common;
-			});
+			const fetchedEvents = rawResponse
+			
+			// .filter((normalEvent) => {
+			// 	return !normalEvent.common;
+			// });
 
 			const fetchedCommonEvents = rawResponse.filter((commonEvent) => {
 				return commonEvent.common;
