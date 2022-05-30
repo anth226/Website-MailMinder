@@ -1415,9 +1415,7 @@
   "version" "3.0.1"
 
 "svelte@^3.2.0", "svelte@^3.44.0", "svelte@>=3.19.0":
-  "integrity" "sha512-fN2YRm/bGumvjUpu6yI3BpvZnpIm9I6A7HR4oUNYd7ggYyIwSA/BX7DJ+UXXffLp6XNcUijyLvttbPVCYa/3xQ=="
-  "resolved" "https://registry.npmjs.org/svelte/-/svelte-3.48.0.tgz"
-  "version" "3.48.0"
+  "version" "3.46.6"
 
 "table@^6.0.9":
   "integrity" "sha512-s/fitrbVeEyHKFa7mFdkuQMWlH1Wgw/yEXMt5xACT4ZpzWFluehAxRtUUQKPuWhaLAWhFcVx6w3oC8VKaUfPGA=="
