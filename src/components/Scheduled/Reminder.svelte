@@ -77,7 +77,7 @@
 		</button>
 
 		<div class="mx-2">
-			<span class="">{daysDifference - 1}</span>{daysDifference === 1 ? ' day' : ' days'}
+			<span class="">{daysDifference}</span>{daysDifference === 1 ? ' day' : ' days'}
 		</div>
 		<button
 			class="rounded-md active:bg-[#959595] p-1"
@@ -120,7 +120,7 @@
 					incrementReminderDate(1);
 				}}
 			/>
-			<div class="select-none">{daysDifference - 1}{daysDifference === 1 ? ' day' : ' days'}</div>
+			<div class="select-none">{daysDifference}{daysDifference === 1 ? ' day' : ' days'}</div>
 			<button
 				class="quantity__button quantity__button_plus"
 				type="button"
