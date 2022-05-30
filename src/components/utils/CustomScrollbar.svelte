@@ -41,7 +41,7 @@
 	const handleScroll = (event) => {
 		//console.log('CHECKING EVENT TARGET', event);
 		if ($innerWidth >= 768) {
-			// console.log('not on mobile');
+			console.log('not on mobile');
 
 			event.stopImmediatePropagation();
 			event.stopPropagation();
