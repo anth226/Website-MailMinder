@@ -32,7 +32,8 @@
 		countries.forEach((country) => {
 			storageArr.push(country.name);
 		});
-		filteredCountries = storageArr.sort();
+		filteredCountries = storageArr;
+		//filteredCountries = storageArr.sort();
 		// hiLiteIndex = null
 	}
 
@@ -121,7 +122,7 @@
 				id="input-tz"
 				type="text"
 				autocomplete="off"
-				placeholder="Search Country"
+				placeholder="Search Category / Country"
 				bind:this={searchInput}
 				bind:value={inputValue}
 				on:input={filterCountries}

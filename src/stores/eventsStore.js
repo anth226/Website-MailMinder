@@ -69,6 +69,7 @@ export const fetchEvents = async () => {
 
 			events.set(fetchedEvents);
 			commonEvents.set(fetchedCommonEvents);
+			console.log(fetchedCommonEvents)
 		} catch (error) {
 			events.set([]);
 			commonEvents.set([]);

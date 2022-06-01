@@ -1,4 +1,8 @@
 export const countries = [
+	{ name: 'Christian', code: 'A1' },
+	{ name: 'Hebrew', code: 'A2' },
+	{ name: 'Muslim', code: 'A3' },
+	{ name: 'Orthodox', code: 'A4' },
 	{ name: 'Afghanistan', code: 'AF' },
 	{ name: 'Åland Islands', code: 'AX' },
 	{ name: 'Albania', code: 'AL' },

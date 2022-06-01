@@ -10,6 +10,8 @@
 	import { events, insertEvent, deleteEvent, insertReminder, commonEvents} from '@stores/eventsStore';
 
 	import { user, notification } from '@stores/sessionStore';
+	
+	import { each } from 'svelte/internal';
 
 	/* LOCAL VARS */
 	const formattedDate = dayjs(event.date).format('MMMM D');
@@ -17,6 +19,7 @@
 	let hover = false;
 
 	/* FUNCTIONS */
+
 
 	const addEvent = async () => {
 		const data = {
@@ -116,6 +119,7 @@
 			return false;
 		}
 	};
+
 </script>
 
 <div class="mb-4 relative hidden md:block flip-box w-full h-[72px] select-none">
