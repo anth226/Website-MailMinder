@@ -88,11 +88,7 @@
 				class=" border-b-2 border-[#d1d1d1] text-4xl  leading-none flex items-center justify-center text-center mx-0.75 w-[112px]"
 			>
 				<!-- <label class="text-[#a8a8a8]" for="Year">20</label> -->
-				<input
-					id="custom"
-					class="w-[44px]"
-					value={20}
-					disabled/>
+				<input id="custom" class="w-[44px]" value={20} disabled />
 				<!-- svelte-ignore a11y-positive-tabindex -->
 				<input
 					class="w-[44px]"
@@ -243,7 +239,7 @@
 </div>
 
 <style>
-	#custom{
+	#custom {
 		background-color: transparent !important;
 	}
 </style>

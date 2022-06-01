@@ -55,8 +55,8 @@ export const fetchEvents = async () => {
 
 			const rawResponse = await response.json();
 
-			const fetchedEvents = rawResponse
-			
+			const fetchedEvents = rawResponse;
+
 			// .filter((normalEvent) => {
 			// 	return !normalEvent.common;
 			// });
@@ -69,7 +69,7 @@ export const fetchEvents = async () => {
 
 			events.set(fetchedEvents);
 			commonEvents.set(fetchedCommonEvents);
-			console.log(fetchedCommonEvents)
+			console.log(fetchedCommonEvents);
 		} catch (error) {
 			events.set([]);
 			commonEvents.set([]);

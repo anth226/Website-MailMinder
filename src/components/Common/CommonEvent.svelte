@@ -7,11 +7,15 @@
 
 	/* STORES */
 
-	import { events, insertEvent, deleteEvent, insertReminder, commonEvents} from '@stores/eventsStore';
+	import {
+		events,
+		insertEvent,
+		deleteEvent,
+		insertReminder,
+		commonEvents
+	} from '@stores/eventsStore';
 
 	import { user, notification } from '@stores/sessionStore';
-	
-	import { each } from 'svelte/internal';
 
 	/* LOCAL VARS */
 	const formattedDate = dayjs(event.date).format('MMMM D');
@@ -19,7 +23,6 @@
 	let hover = false;
 
 	/* FUNCTIONS */
-
 
 	const addEvent = async () => {
 		const data = {
@@ -40,8 +43,8 @@
 		$events.splice(index, 1, result);
 
 		$commonEvents = $events.filter((event) => {
-				return event.common;
-			}); 
+			return event.common;
+		});
 
 		if (result && !result.error) {
 			let reminderData = { uuid: $user.id };
@@ -90,8 +93,6 @@
 			return eventIteration.id !== eventId;
 		});
 
-	
-
 		//console.log('eventToDelete', eventToDelete);
 
 		const result = await deleteEvent(eventId);
@@ -103,11 +104,10 @@
 
 			$commonEvents = $events.filter((event) => {
 				return event.common;
-			}); 
+			});
 
 			return result;
 		} else {
-
 			//console.log('EVENT NOT DELETED', eventToDelete);
 
 			const oldevents = $events.length ? [...$events] : [];
@@ -115,11 +115,10 @@
 			oldevents.splice(index, 0, eventToDelete);
 
 			$events = oldevents;
-			
+
 			return false;
 		}
 	};
-
 </script>
 
 <div class="mb-4 relative hidden md:block flip-box w-full h-[72px] select-none">

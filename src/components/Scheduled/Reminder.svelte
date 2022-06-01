@@ -24,7 +24,9 @@
 
 	/* REACTIVE STATEMENTS */
 
-	$: daysDifference = event.common ? dayjs(event.date).add(1, 'day').diff(reminder.date, 'days') : dayjs(event.date).diff(reminder.date, 'days');
+	$: daysDifference = event.common
+		? dayjs(event.date).add(1, 'day').diff(reminder.date, 'days')
+		: dayjs(event.date).diff(reminder.date, 'days');
 
 	/* FUNCTIONS */
 
@@ -79,7 +81,7 @@
 		</button>
 
 		<div class="mx-2">
-			<span class="">{daysDifference }</span>{daysDifference === 1 ? ' day' : ' days'}
+			<span class="">{daysDifference}</span>{daysDifference === 1 ? ' day' : ' days'}
 		</div>
 		<button
 			class="rounded-md active:bg-[#959595] p-1"
