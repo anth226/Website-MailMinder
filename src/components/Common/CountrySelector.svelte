@@ -13,7 +13,6 @@
 	import { country } from '@stores/eventsStore.js';
 
 	/* RUNTIME VARS */
-
 	let scrollArea;
 	let content;
 
