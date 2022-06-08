@@ -106,10 +106,10 @@
 		// add new reminder to reminders array
 		if (result) {
 			reminders[reminders.length - 1] = result;
-			notification.set(`Reminder added for ${dateToSave}`);
+			notification.set(`Reminder added`);
 		} else {
 			reminders.pop();
-			notification.set(`Error adding reminder for ${dateToSave}`);
+			notification.set(`Error adding reminder`);
 		}
 	};
 
@@ -120,7 +120,6 @@
 		$events = $events.filter((eventIteration) => {
 			return eventIteration.id !== event.id;
 		});
-
 		const result = await deleteEvent(event.id);
 
 		//console.log('CHECKING RESULT', result);

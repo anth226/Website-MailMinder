@@ -11,8 +11,7 @@
 		events,
 		insertEvent,
 		deleteEvent,
-		insertReminder,
-		commonEvents
+		insertReminder
 	} from '@stores/eventsStore';
 
 	import { user, notification } from '@stores/sessionStore';
@@ -41,11 +40,6 @@
 		const result = await insertEvent(data);
 
 		$events.splice(index, 1, result);
-
-		$commonEvents = $events.filter((event) => {
-			return event.common;
-		});
-
 		if (result && !result.error) {
 			let reminderData = { uuid: $user.id };
 			// delete data.title
@@ -78,7 +72,6 @@
 
 	const removeEvent = async () => {
 		const eventToDelete = Object.assign({}, event);
-
 		const eventId =
 			eventToDelete.id ??
 			$events.find((commonEvent) => {
@@ -101,11 +94,6 @@
 
 		if (!result.error) {
 			//console.log('EVENT DELETED', eventToDelete);
-
-			$commonEvents = $events.filter((event) => {
-				return event.common;
-			});
-
 			return result;
 		} else {
 			//console.log('EVENT NOT DELETED', eventToDelete);

@@ -1,6 +1,6 @@
 /* PACKAGES */
 
-import { writable, get } from 'svelte/store';
+import { writable, get, derived } from 'svelte/store';
 
 /* STORES */
 
@@ -11,9 +11,22 @@ import { countries } from '@constants/countries';
 
 export const event = writable({});
 
-export const events = writable(null);
+export const events = writable([]);
 
-export const commonEvents = writable(null);
+export const commonEvents = derived(events, $events => {
+	const temp = $events.filter((event) => {
+		return event.common;
+	})
+	temp.sort((a, b)=> {
+		const nameA = a.title.toUpperCase(); // ignore upper and lowercase
+		const nameB = b.title.toUpperCase(); // ignore upper and lowercase
+		console.log("NAMEA", nameA)
+		return nameA.localeCompare(nameB);
+	})
+	return temp
+});
+
+//console.log("COMMON EVENTS", $commonEvents)
 
 export const holidays = writable([]);
 
@@ -57,22 +70,9 @@ export const fetchEvents = async () => {
 
 			const fetchedEvents = rawResponse;
 
-			// .filter((normalEvent) => {
-			// 	return !normalEvent.common;
-			// });
-
-			const fetchedCommonEvents = rawResponse.filter((commonEvent) => {
-				return commonEvent.common;
-			});
-
-			//console.log('CHECKING FETCH EVENTS', fetchedEvents, fetchedCommonEvents);
-
 			events.set(fetchedEvents);
-			commonEvents.set(fetchedCommonEvents);
-			console.log(fetchedCommonEvents);
 		} catch (error) {
 			events.set([]);
-			commonEvents.set([]);
 			console.error(error);
 		}
 	}
@@ -157,8 +157,15 @@ export const fetchHolidays = async (eventCountry) => {
 		holidaysInitialized.set(true);
 		try {
 			const response = await fetch(`${baseUrl}/holiday/${eventCountry}`);
+			const temp = await response.json()
+			temp.sort((a, b)=> {
+				const nameA = a.title.toUpperCase(); // ignore upper and lowercase
+				const nameB = b.title.toUpperCase(); // ignore upper and lowercase
+				console.log("NAMEA", nameA)
+				return nameA.localeCompare(nameB);
+			})
 			holidays.set([
-				...(await response.json())
+				...temp
 				/* {
 				date: '2022-05-05',
 				localName: 'TEST EVENT',
