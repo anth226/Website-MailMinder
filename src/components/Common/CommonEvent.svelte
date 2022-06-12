@@ -109,7 +109,7 @@
 	};
 </script>
 
-<div class="mb-4 relative hidden md:block flip-box w-full h-[72px] select-none">
+<div class="mb-4 relative hidden md:block flip-box w-full h-[72px]">
 	<div class=" w-full h-full  relative flip-box-inner" class:show-back={event.selected}>
 		<div
 			class=" w-full h-[72px] flex justify-between items-center px-6 flip-box-front bg-white rounded-2xl"
@@ -177,7 +177,7 @@
 	</div>
 </div>
 
-<div class="mb-4 relative md:hidden flip-box w-full h-[206px] select-none">
+<div class="mb-4 relative md:hidden flip-box w-full h-[206px]">
 	<div class=" w-full h-full  relative flip-box-inner" class:show-back={event.selected}>
 		<div
 			class=" px-6 py-5 bg-white rounded-2xl shadow-lg flip-box-front flex flex-col justify-center"
