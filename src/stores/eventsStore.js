@@ -13,17 +13,17 @@ export const event = writable({});
 
 export const events = writable([]);
 
-export const commonEvents = derived(events, $events => {
+export const commonEvents = derived(events, ($events) => {
 	const temp = $events.filter((event) => {
 		return event.common;
-	})
-	temp.sort((a, b)=> {
+	});
+	temp.sort((a, b) => {
 		const nameA = a.title.toUpperCase(); // ignore upper and lowercase
 		const nameB = b.title.toUpperCase(); // ignore upper and lowercase
-		console.log("NAMEA", nameA)
+		console.log('NAMEA', nameA);
 		return nameA.localeCompare(nameB);
-	})
-	return temp
+	});
+	return temp;
 });
 
 //console.log("COMMON EVENTS", $commonEvents)
@@ -157,13 +157,13 @@ export const fetchHolidays = async (eventCountry) => {
 		holidaysInitialized.set(true);
 		try {
 			const response = await fetch(`${baseUrl}/holiday/${eventCountry}`);
-			const temp = await response.json()
-			temp.sort((a, b)=> {
+			const temp = await response.json();
+			temp.sort((a, b) => {
 				const nameA = a.title.toUpperCase(); // ignore upper and lowercase
 				const nameB = b.title.toUpperCase(); // ignore upper and lowercase
-				console.log("NAMEA", nameA)
+				console.log('NAMEA', nameA);
 				return nameA.localeCompare(nameB);
-			})
+			});
 			holidays.set([
 				...temp
 				/* {

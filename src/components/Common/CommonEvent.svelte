@@ -7,12 +7,7 @@
 
 	/* STORES */
 
-	import {
-		events,
-		insertEvent,
-		deleteEvent,
-		insertReminder
-	} from '@stores/eventsStore';
+	import { events, insertEvent, deleteEvent, insertReminder } from '@stores/eventsStore';
 
 	import { user, notification } from '@stores/sessionStore';
 
