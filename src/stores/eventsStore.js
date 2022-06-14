@@ -13,7 +13,7 @@ export const event = writable({});
 
 export const events = writable([]);
 
-export const commonEvents = derived(events, $events => {
+export const commonEvents = derived(events, ($events) => {
 	const temp = $events.filter((event) => {
 		return event.common;
 	})
