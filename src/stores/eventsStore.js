@@ -17,11 +17,15 @@ export const commonEvents = derived(events, $events => {
 	const temp = $events.filter((event) => {
 		return event.common;
 	})
-	temp.sort((a, b)=> {
-		const nameA = a.title.toUpperCase(); // ignore upper and lowercase
-		const nameB = b.title.toUpperCase(); // ignore upper and lowercase
-		console.log("NAMEA", nameA)
-		return nameA.localeCompare(nameB);
+	temp.sort((a, b) => {
+		const d1 = new Date(a.date)
+		const d2 = new Date(b.date)
+		if (d1 < d2) {
+			return -1
+		}
+		if (d1 > d2) return 1
+		return 0
+
 	})
 	return temp
 });
@@ -158,11 +162,17 @@ export const fetchHolidays = async (eventCountry) => {
 		try {
 			const response = await fetch(`${baseUrl}/holiday/${eventCountry}`);
 			const temp = await response.json()
-			temp.sort((a, b)=> {
-				const nameA = a.title.toUpperCase(); // ignore upper and lowercase
-				const nameB = b.title.toUpperCase(); // ignore upper and lowercase
-				console.log("NAMEA", nameA)
-				return nameA.localeCompare(nameB);
+			temp.sort((a, b) => {
+				const d1 = new Date(a.date)
+				const d2 = new Date(b.date)
+				console.log("NAMEA", d1)
+				console.log("GREATERTHEN", d1 > d2)
+				if (d1 < d2) {
+					console.log("GREATERTHEN", d1 < d2)
+					return -1
+				}
+				if (d1 > d2) return 1
+				return 0
 			})
 			holidays.set([
 				...temp
