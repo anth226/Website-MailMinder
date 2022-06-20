@@ -7,7 +7,12 @@
 
 	/* STORES */
 
-	import { events, insertEvent, deleteEvent, insertReminder } from '@stores/eventsStore';
+	import {
+		events,
+		insertEvent,
+		deleteEvent,
+		insertReminder
+	} from '@stores/eventsStore';
 
 	import { user, notification } from '@stores/sessionStore';
 
@@ -106,8 +111,15 @@
 
 <div class="mb-4 relative hidden md:block flip-box w-full h-[72px]">
 	<div class=" w-full h-full  relative flip-box-inner" class:show-back={event.selected}>
-		<div
-			class=" w-full h-[72px] flex justify-between items-center px-6 flip-box-front bg-white rounded-2xl"
+		<button
+			class=" w-full h-[72px] flex justify-between items-center px-6 flip-box-front bg-white rounded-2xl hover:bg-[#f9f9f9] hover:border-[1px] hover:border-[#d9d9d9]"
+			on:click={addEvent}
+			on:pointerover={() => {
+				hover = true;
+			}}
+			on:pointerleave={() => {
+				hover = false;
+			}}
 		>
 			<div class="flex items-center">
 				<div class="scheduled-item__text">{event.title}</div>
@@ -118,26 +130,16 @@
 					<span>Yearly</span>
 				</div>
 			</div>
-			<button
-				class="w-8 h-8 rounded-full cursor-pointer flex justify-center items-center  my-auto text-[#959595] hover:text-black"
-				title="Add event"
-				on:click={addEvent}
-				on:pointerover={() => {
-					hover = true;
-				}}
-				on:pointerleave={() => {
-					hover = false;
-				}}
-			>
-				<img
-					alt="Add event"
-					class=" w-4 h-4"
-					src={hover ? '/img/plus-black.svg' : '/img/plus.svg'}
-				/>
-			</button>
-		</div>
-		<div
-			class=" w-full h-[72px] flex justify-between items-center px-6 flip-box-back bg-[#f7f7f7] border-[1px] border-[#d1d1d1] rounded-2xl"
+		</button>
+		<button
+			class=" w-full h-[72px] flex justify-between items-center px-6 flip-box-back bg-[#f7f7f7] border-[1px] border-[#d1d1d1] rounded-2xl hover:bg-[#e2e2e2] hover:border:[c1c1c1]"
+			on:click={removeEvent}
+			on:pointerover={() => {
+				hover = true;
+			}}
+			on:pointerleave={() => {
+				hover = false;
+			}}
 		>
 			<div class="flex items-center">
 				<div class="scheduled-item__text">{event.title}</div>
@@ -151,24 +153,7 @@
 					SCHEDULED
 				</div>
 			</div>
-			<button
-				class="w-8 h-8 rounded-full cursor-pointer flex justify-center items-center my-auto text-[#959595] hover:text-black"
-				title="Delete reminder"
-				on:click={removeEvent}
-				on:pointerover={() => {
-					hover = true;
-				}}
-				on:pointerleave={() => {
-					hover = false;
-				}}
-			>
-				<img
-					alt="Delete Event"
-					class=" w-4 h-4"
-					src={hover ? '/img/minus-black.svg' : '/img/minus.svg'}
-				/>
-			</button>
-		</div>
+		</button>
 	</div>
 </div>
 

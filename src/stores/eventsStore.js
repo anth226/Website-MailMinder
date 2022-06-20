@@ -13,7 +13,7 @@ export const event = writable({});
 
 export const events = writable([]);
 
-export const commonEvents = derived(events, ($events) => {
+export const commonEvents = derived(events, $events => {
 	const temp = $events.filter((event) => {
 		return event.common;
 	})
@@ -165,10 +165,7 @@ export const fetchHolidays = async (eventCountry) => {
 			temp.sort((a, b) => {
 				const d1 = new Date(a.date)
 				const d2 = new Date(b.date)
-				console.log("NAMEA", d1)
-				console.log("GREATERTHEN", d1 > d2)
 				if (d1 < d2) {
-					console.log("GREATERTHEN", d1 < d2)
 					return -1
 				}
 				if (d1 > d2) return 1

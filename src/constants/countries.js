@@ -228,10 +228,10 @@ export const countries = [
 	// { name: 'Turks and Caicos Islands', code: 'TC' },
 	// { name: 'Tuvalu', code: 'TV' },
 	// { name: 'Uganda', code: 'UG' },
-	{ name: 'Ukraine', code: 'UA' },
+	 { name: 'Ukraine', code: 'UA' },
 	//{ name: 'United Arab Emirates', code: 'AE' },
 	{ name: 'United Kingdom', code: 'GB' },
-	{ name: 'United States', code: 'US' }
+	{ name: 'United States', code: 'US' },
 	// { name: 'United States Minor Outlying Islands', code: 'UM' },
 	// { name: 'Uruguay', code: 'UY' },
 	// { name: 'Uzbekistan', code: 'UZ' },

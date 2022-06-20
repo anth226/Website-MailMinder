@@ -14,9 +14,11 @@
 
 	/* RUNTIME VARS */
 
-	console.log('Common Events', $commonEvents);
 
-	let selectedHolidays;
+	console.log("Common Events", $commonEvents)
+
+
+	let selectedHolidays
 
 	let scrollArea;
 	let content;
@@ -44,6 +46,7 @@
 				];
 		  }, [])
 		: [];
+
 </script>
 
 {#if $user}

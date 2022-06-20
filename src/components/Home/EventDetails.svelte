@@ -84,7 +84,7 @@
 				// show = true;
 
 				routeToPage(``);
-				notification.set('Mail minder updated!');
+				notification.set('Event updated');
 				$event = {};
 				sending = false;
 				if (!$user) email = '';
